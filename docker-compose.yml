@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  db:
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: template_user
+      POSTGRES_PASSWORD: 5KaAme3BT1dHAOimu9lFF05ceR4Bx9fjHB2mbWtbXQDVIaYt0C3KWOqOIHdRzGS55sJ1RLg5evoMscapQeGJwGLodlUz7yTIICMPqEtQdkbHjTfkQmftrWHuI9M93jUp
+      POSTGRES_DB: template_db
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    user: root
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'admin@template.co.kr'
+      PGADMIN_DEFAULT_PASSWORD: '1q2w3e4r5t'
+    ports:
+      - 3030:80
+    volumes:
+      - ./pgadmin/data:/var/lib/pgadmin
+    depends_on:
+      - db
