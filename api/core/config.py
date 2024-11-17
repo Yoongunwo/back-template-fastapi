@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = '/api/v1'
     
     # Database Settings
-    DB_HOST: str = os.getenv('DB_HOST', 'localhost')
+    DB_HOST: str = os.getenv('DB_HOST', '10.125.37.127')
     DB_PORT: int = int(os.getenv('DB_PORT', '5432'))
     DB_NAME: str = os.getenv('DB_NAME', 'template_db')
     DB_USER: str = os.getenv('DB_USER', 'template_user')

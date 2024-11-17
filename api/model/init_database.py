@@ -15,8 +15,6 @@ from model.user import models as user_models
 from model.user import schemas as user_schemas
 from model.user import crud as user_crud
 
-PATH = os.path.abspath(os.pardir)
-
 def init_database(engine: engine, db: Annotated[Session, Depends(get_db)]):
     # Create Tables
     Base.metadata.create_all(bind=engine)
